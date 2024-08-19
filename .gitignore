@@ -1,2 +1,9 @@
 node_modules
 node_modules
+kociakweb/build
+kociakweb/.gradle
+kociakweb/.idea
+kociakweb/build.gradle
+kociakweb/gradlew
+kociakweb/gradlew.bat
+kociakweb/settings.gradle
