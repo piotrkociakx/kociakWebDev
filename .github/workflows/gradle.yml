@@ -8,7 +8,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -21,33 +20,22 @@ jobs:
         java-version: '22'
         distribution: 'temurin'
 
-    # Set up Gradle in the specific directory
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@v4.0.0
-      with:
-        build-root-directory: kociakWeb
-
-    # Run the Gradle build command
     - name: Build with Gradle Wrapper
-      run: ./gradlew build
+      run: ./kociakWeb/gradlew build
       working-directory: kociakWeb
 
-  dependency-submission:
-
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-
-    steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 22
-      uses: actions/setup-java@v4
+    # Save test report as an artifact
+    - name: Upload test report
+      if: failure() # This will upload the report only if the build fails
+      uses: actions/upload-artifact@v3
       with:
-        java-version: '22'
-        distribution: 'temurin'
+        name: test-report
+        path: kociakWeb/build/reports/tests/test/index.html
 
-    # Generate and submit dependency graph
-    - name: Generate and submit dependency graph
-      uses: gradle/actions/dependency-submission@v4.0.0
+    # Alternatively, you can upload the entire reports folder
+    - name: Upload all test reports
+      if: failure() # This will upload the reports only if the build fails
+      uses: actions/upload-artifact@v3
       with:
-        build-root-directory: kociakWeb
+        name: test-reports
+        path: kociakWeb/build/reports/tests/test/
