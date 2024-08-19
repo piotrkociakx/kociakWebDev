@@ -7,18 +7,19 @@ function getQueryParam(param: string): string | null {
 
 async function loadYamlFile(argument1: string): Promise<any> {
   const url = `http://83.168.69.206/plugins/getConfig/${argument1}`;
-  const response = await fetch(url);
-  const yamlText = await response.text();
+  const response = await fetch(url, { mode: 'no-cors' });
+  const yamlText = await response.text();  // Możesz napotkać problem z dostępem do odpowiedzi
   const data = yaml.load(yamlText);
   return data;
 }
 
 async function loadPluginData(argument1: string): Promise<any> {
   const url = `http://83.168.69.206/plugins/get/${argument1}`;
-  const response = await fetch(url);
-  const data = await response.json();
+  const response = await fetch(url, { mode: 'no-cors' });
+  const data = await response.json();  // Możesz napotkać problem z dostępem do odpowiedzi
   return data;
 }
+
 
 async function displayYaml() {
   try {

@@ -25,4 +25,4 @@ jobs:
       run: npm install
 
     - name: Compile TypeScript
-      run: tsc
+      run: npm run build
