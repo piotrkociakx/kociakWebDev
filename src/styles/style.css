@@ -1,0 +1,538 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --background-color: #060000;
+    --text-color: #e7fefd;
+    --other-text-color: #1d1d1d;
+    --primary-color: #00ff80;
+    --seccondary-color: #00eeff;
+}
+
+* 
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  
+body
+{
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+    background-color: var(--background-color);
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+  body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .element {
+    overflow: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  
+
+.toolbar {
+    display: flex;
+    background-color:var(--background-color);
+    color: var(--text-color);
+    flex-direction: row;
+    justify-content:flex-end;
+    align-items: center;
+    gap: 10px;
+    min-height: 90px;
+    flex-wrap: nowrap;
+}
+#name {
+    margin-right: auto;
+    justify-self: start;
+    max-width: 90px;
+    flex-shrink: 0;
+    margin-left: 15px;
+}
+
+#aboutOption {
+    flex-shrink: 0;
+    margin-right: 30px;
+}
+#panelOption {
+    margin-right: 80px;
+}
+
+.divider {
+    position: relative;
+    width: 100%;
+    height: 5px;
+    background-color: var(--background-color);
+}
+
+.divider:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 5px solid var(--primary-color);
+    box-sizing: border-box;
+}
+
+
+
+
+@media (max-width: 500px)  {
+    #name {
+        max-width: 100px;
+        flex-shrink: 0;
+    }
+    #panelOption {
+        margin-right: 50px;
+        max-width: 60px;
+    }
+    #aboutOption {
+        display: none;
+    }    
+}
+@media (min-width: 500px) and (max-width: 1000px) {
+    #panelOption {
+        margin-right: 30px;
+    }
+}
+
+
+.headers {
+    display: flex;
+    flex-direction: column;
+}
+
+.header1 {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin-top: 5px;
+    min-width: 100%;
+    min-height: 1000px;
+    display: flex;
+    flex-direction: column;
+    position: relative
+}
+
+#mainHeader1 {
+    font-weight: bold;
+    font-size: 150px;
+    max-width: 260px;
+    margin-top: 140px;
+    margin-left: 343px;
+}
+
+#seccondHeader1 {
+    font-weight: 700;
+    font-size: 30px;
+    margin-left: 350px;
+    max-width: 800px;
+    flex-shrink: 1;
+}
+
+#askHeader1 {
+    border: none;
+    cursor: pointer;
+    background-color: var(--primary-color);
+    color: var(--other-text-color);
+    min-height: 75px;
+    width: 210px;
+    font-size: 20px;
+    border-radius: 3px;
+    font-weight: bold;
+    position: absolute;
+    margin-top: 425px;
+    left: 74%;
+    transform: translateX(-50%);
+}
+
+#bioHeader1 {
+    border: none;
+    cursor: pointer;
+    background-color: var(--seccondary-color);
+    color: var(--other-text-color);
+    min-height: 75px;
+    width: 210px;
+    font-size: 20px;
+    border-radius: 3px;
+    font-weight: bold;
+    position: absolute;
+    margin-top: 425px;
+    left: 86%;
+    transform: translateX(-50%);
+}
+
+
+
+.header2 {
+    display: flex;
+    position: relative;
+    background-color: var(--background-color);
+    height: 900px;
+    width: 100%;
+    color: var(--text-color);
+    flex-direction: column;
+    align-items: center;
+}
+
+#mainHeader2 {
+    margin-top: 30px;
+    font-size: 70px;
+}
+
+.ContentHeader2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.programing {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    justify-content: center;
+    align-items: center;
+}
+
+.programing-list {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#programing-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.using {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+}
+
+.usingList {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#usingIcon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.java i {
+    font-size: 60px;
+    color: orange;
+}
+
+.html i {
+    font-size: 60px;
+    color: orange;
+}
+
+.css i {
+    font-size: 60px;
+    color: blue;
+}
+
+.sql i {
+    font-size: 60px;
+    color: rgb(28, 145, 42);
+}
+
+.typescript i {
+    font-size: 60px;
+    color: blue;
+}
+
+.arch i {
+    font-size: 60px;
+    color: blue;
+}
+
+.skillhost i {
+    font-size: 60px;
+    color: rgb(144, 0, 255);
+}
+
+.visualstudiocode i {
+    font-size: 60px;
+    color: rgb(0, 140, 255);
+}
+
+.inteliJIdea i {
+    font-size: 60px;
+    color: rgb(255, 9, 226);
+}
+
+/* Duze ekrany min 2000px */
+@media (min-width: 2000px) {
+    #askHeader1 {
+        left: 75%;
+        transform: translateX(-50%);
+    }
+
+    #bioHeader1 {
+        left: 86%;
+    }
+}
+
+/* małe ekrany i tablety 1400px */
+@media (max-width: 1400px) {
+    #mainHeader1 {
+        margin-left: 200px;
+    }
+
+    #seccondHeader1 {
+        margin-left: 250px;
+    }
+
+    #askHeader1 {
+        width: 180px;
+        margin-top: 500px;
+        left: 65%;
+        transform: translateX(-50%);
+    }
+
+    #bioHeader1 {
+        width: 190px;
+        margin-top: 500px;
+        left: 80%;
+        transform: translateX(-50%);
+    }
+
+    .java i,
+    .html i,
+    .css i,
+    .sql i,
+    .typescript i,
+    .arch i,
+    .skillhost i,
+    .visualstudiocode i,
+    .inteliJIdea i {
+        font-size: 50px;
+    }
+}
+
+/* tablety 992 px */
+@media (max-width: 992px) {
+    #mainHeader1 {
+        margin-left: 150px;
+    }
+
+    #seccondHeader1 {
+        margin-left: 200px;
+    }
+
+    #askHeader1 {
+        width: 170px;
+        font-size: 18px;
+        left: 60%;
+        margin-top: 650px;
+        transform: translateX(-50%);
+    }
+
+    #bioHeader1 {
+        width: 190px;
+        font-size: 18px;
+        margin-top: 650px;
+        left: 81%;
+        transform: translateX(-50%);
+    }
+
+    .java i,
+    .html i,
+    .css i,
+    .sql i,
+    .typescript i,
+    .arch i,
+    .skillhost i,
+    .visualstudiocode i,
+    .inteliJIdea i {
+        font-size: 45px;
+    }
+}
+
+/* Mniejsze ekrany 767 px */
+@media (max-width: 768px) {
+    #mainHeader1 {
+        font-size: 120px;
+        margin-left: 100px;
+    }
+
+    #seccondHeader1 {
+        font-size: 25px;
+        margin-left: 150px;
+    }
+
+    #askHeader1 {
+        width: 150px;
+        font-size: 16px;
+        left: 51%;
+        margin-top: 525px;
+        transform: translateX(-50%);
+    }
+
+    #bioHeader1 {
+        width: 150px;
+        font-size: 18px;
+        margin-top: 525px;
+        left: 81%;
+        transform: translateX(-50%);
+    }
+
+    .ContentHeader2 {
+        flex-direction: column;
+    }
+    #mainHeader2 {
+        margin-top: 30px;
+        font-size: 40px;
+    }
+
+    .java i,
+    .html i,
+    .css i,
+    .sql i,
+    .typescript i,
+    .arch i,
+    .skillhost i,
+    .visualstudiocode i,
+    .inteliJIdea i {
+        font-size: 40px;
+    }
+}
+
+/* małe ekrany 576 px */
+@media (max-width: 576px) {
+    #mainHeader1 {
+        font-size: 100px;
+        margin-left: 50px;
+        margin-top: 100px;
+    }
+
+    #seccondHeader1 {
+        font-size: 20px;
+        margin-left: 75px;
+    }
+
+    #askHeader1 {
+        width: 140px;
+        font-size: 16px;
+        left: 42%;
+        transform: translateX(-50%);
+        margin-top: 500px;
+    }
+
+    #bioHeader1 {
+        width: 140px;
+        font-size: 16px;
+        margin-top: 500px;
+        left: 78%;
+        transform: translateX(-50%);
+    }
+
+    .programing {
+        width: 100%;
+    }
+    .ContentHeader2 {
+        flex-direction: column;
+    }
+
+    .programing-list {
+        flex-direction: row;
+        width: 60%;
+    }
+
+    .java i,
+    .html i,
+    .css i,
+    .sql i,
+    .typescript i,
+    .arch i,
+    .skillhost i,
+    .visualstudiocode i,
+    .inteliJIdea i {
+        font-size: 30px;
+    }
+    
+
+    .java p,
+    .html p,
+    .css p,
+    .sql p,
+    .typescript p,
+    .arch p,
+    .skillhost p,
+    .visualstudiocode p,
+    .inteliJIdea p {
+        font-size: 10px;
+    }
+}
+
+.header3 {
+    height: 800px;
+    justify-content: center;
+    justify-items: center;
+}
+.header3 h1 {
+    margin-top: 30px;
+    font-size: 70px;
+    text-align: center;
+    color: var(--text-color);
+}
+.header3list{
+    display: flex;
+    margin-top: 150px;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    gap: 40px
+}
+#header3Content {
+    color: var(--text-color);
+    width: 375px;
+    display: flexbox;
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+}
+#header3Content h2 {
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+#header3Content p {
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+
