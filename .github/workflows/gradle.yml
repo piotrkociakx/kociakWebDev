@@ -20,6 +20,10 @@ jobs:
           java-version: '22'
           distribution: 'temurin'
 
+      # List files in the kociakWeb directory to verify gradlew location
+      - name: List files for debugging
+        run: ls -al kociakWeb/
+
       # Grant execute permission for gradlew
       - name: Grant execute permission for gradlew
         run: chmod +x kociakWeb/gradlew
