@@ -21,19 +21,10 @@ jobs:
         java-version: '22'
         distribution: 'temurin'
 
-    # Change to the directory where your Gradle project is located
-    - name: Change directory to kociakWeb
-      run: cd kociakWeb
-
-    # Configure Gradle for optimal use in GitHub Actions, including caching of downloaded dependencies.
-    # See: https://github.com/gradle/actions/blob/main/setup-gradle/README.md
-    - name: Setup Gradle
-      uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
-      with:
-        build-root-directory: kociakWeb
-
+    # Change directory directly in the run command
     - name: Build with Gradle Wrapper
-      run: ./gradlew build
+      run: ./kociakWeb/gradlew build
+      working-directory: kociakWeb
 
   dependency-submission:
 
@@ -49,13 +40,10 @@ jobs:
         java-version: '22'
         distribution: 'temurin'
 
-    # Change to the directory where your Gradle project is located
-    - name: Change directory to kociakWeb
-      run: cd kociakWeb
-
-    # Generates and submits a dependency graph, enabling Dependabot Alerts for all project dependencies.
-    # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
+    # Generate and submit dependency graph
     - name: Generate and submit dependency graph
+      run: ./gradlew dependencies
+      working-directory: kociakWeb
       uses: gradle/actions/dependency-submission@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
       with:
         build-root-directory: kociakWeb
