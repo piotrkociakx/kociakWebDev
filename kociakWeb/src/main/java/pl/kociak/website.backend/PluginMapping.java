@@ -36,7 +36,7 @@ public class PluginMapping {
 
 
 
-    @GetMapping("/{name}/config.yml")
+    @GetMapping("/getConfig/{name}")
     public ResponseEntity<String> getConfigFile(@PathVariable String name) {
         try {
             String filePathStr = name + "/config.yml";
@@ -59,5 +59,6 @@ public class PluginMapping {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
 
 }
