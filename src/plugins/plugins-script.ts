@@ -1,7 +1,13 @@
 import * as yaml from 'js-yaml';
 
-async function loadYamlFile(filePath: string): Promise<any> {
-  const response = await fetch(filePath);
+function getQueryParam(param: string): string | null {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param);
+}
+
+async function loadYamlFile(argument1: string): Promise<any> {
+  const url = `http://83.168.69.206/plugins/getConfig/${argument1}`;
+  const response = await fetch(url);
   const yamlText = await response.text();
   const data = yaml.load(yamlText);
   return data;
@@ -9,7 +15,13 @@ async function loadYamlFile(filePath: string): Promise<any> {
 
 async function displayYaml() {
   try {
-    const yamlData = await loadYamlFile('/path/to/data.yml');
+    const argument1 = getQueryParam('name');
+    
+    if (!argument1) {
+      throw new Error('Parameter "name" is missing in the URL');
+    }
+
+    const yamlData = await loadYamlFile(argument1);
     const outputDiv = document.getElementById('configYaml');
 
     if (outputDiv) {
