@@ -1,0 +1,122 @@
+# Autor pluginu piotrkociakx
+#                                       O Pluginie
+# =============================================
+# placeholdery:
+# %kcportfel_getMoney% - zwraca pieniadze w portfelu gracza
+
+# Permisje:
+#  kcportfel.admin - pozwala na korzystanie z komendy /adminportfel | kcportfel.reload - pozwala na korzystanie z komendy /adminportfel reload
+
+# Komendy:
+# /portfel | /adminportfel | addmoneywallet - uniklalna komenda dla konsoli do dodawania pieniedzy do portfela gracza (nikt oprocz konosli nie moze jej wykonac)
+
+# Inne informacje:
+# plugin do dzialania wymaga bazy danych MYSQL oraz pluginu PlaceholderAPI
+# Kazda wiadomosc ma wsparcie dla kolorow i placeholderapi
+# plugin jest przeznaczony na wersje 1.16+
+# dziala najlepiej na javie 17 oraz 19 oraz 11
+# =============================================
+#
+
+db:
+  type: yaml # Typ bazy danych, może być 'mysql', 'sqlite' lub 'yaml' mysql jest najbardziej wydajny i zalecany!
+mysql:
+  host: localhost # Host bazy danych MySQL
+  port: 3306 # Port bazy danych MySQL
+  database: mydatabase # Nazwa bazy danych MySQL
+  username: myusername # Nazwa użytkownika bazy danych MySQL
+  password: mypassword # Hasło użytkownika bazy danych MySQL
+
+discord:
+  enable: false
+  webhook: "https://discord.com/api/webhooks/1234567890/ABCDEFGHIJKLMN" # url webhooka pod discorda
+
+commands:
+  portfel:
+    aliases:
+      - "rangi"
+
+walletgui:
+  options:
+    title: "&aPortfel"
+    slots: 54 # sloty
+    background: "AIR" # Materiał tła GUI, air to powietrze co oznacza ze bedzie puste
+    infoitem:
+      material: PAPER # material
+      slot: 40 # slot w gui
+      name: "&bPortfel" # nazwa
+      lore: # opis
+        - "&bTwoje pieniadze: &a%kcportfel_getMoney%  vPLN"
+        - " "
+        - "&bDoładowanie zakupisz na https://www.mojserwermc.pl/"
+  slots: # konfiguiracja gui oraz cen
+    19: # slot
+      material: LIGHT_BLUE_WOOL # materiał
+      count: 1 # ilosc pokazana w gui
+      enchanted: false # czy przedmiot ma miec błysk enchantu
+      name: "&b&lVIP" # nazwa itemu
+      buyable: true # czy mozna kupic ten przedmiot czy jest tylko dekoracyjny
+      lore: # opis
+        - "&3Koszt: 5vPln"
+        - "&aWiecej info pod /vip"
+      price: 5.0 # cena
+      commands: # komendy wywoływane przy zakupie
+        - "lp user %player_name% parent set vip"
+      brodcast: "&aGracz %player_name% kupil vipa!"
+      discord: # ustawienia embeda discordowego
+        title: "Gracz zakupił &b&lvipa"
+        description: "Gracz %player_name% zakupił vipa"
+        color: "#F1C40F"
+    21:
+      material: PINK_WOOL
+      count: 1
+      enchanted: false
+      name: "&5&lSVIP"
+      buyable: true
+      lore:
+        - "&5Koszt: 9.99vPln"
+        - "&aWiecej info pod /svip"
+      price: 9.99
+      commands:
+        - "lp user %player_name% parent set svip"
+      brodcast: "&aGracz %player_name% kupil &5&lsvipa!"
+      discord:
+        title: "Gracz zakupił svipa"
+        description: "Gracz %player_name% zakupił svipa"
+        color: "#F1C40F"
+    23:
+      material: YELLOW_WOOL
+      count: 1
+      enchanted: false
+      name: "&6&lGVIP"
+      buyable: true
+      lore:
+        - "&6Koszt: 20vPln"
+        - "&aWiecej info pod /gvip"
+      price: 20.0
+      commands:
+        - "lp user %player_name% parent set gvip"
+      brodcast: "&aGracz %player_name% kupil &6&lgvipa!"
+      discord:
+        title: "Gracz zakupił gvipa"
+        description: "Gracz %player_name% zakupił gvipa"
+        color: "#F1C40F"
+    25:
+      material: GREEN_WOOL
+      count: 1
+      enchanted: false
+      name: "&2&lMVIP"
+      buyable: true
+      lore:
+        - "&2Koszt: 39.99vPln"
+        - "&aWiecej info pod /mvip"
+      price: 39.99
+      commands:
+        - "lp user %player_name% parent set mvip"
+      brodcast: "&aGracz %player_name% kupil &2&lgvipa!"
+      discord:
+        title: "Gracz zakupił mvipa"
+        description: "Gracz %player_name% zakupił mvipa"
+        color: "#F1C40F"
+
+        # dodaj wiecej jak potrzebujesz wdg wzoru
