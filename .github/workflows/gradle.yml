@@ -2,9 +2,9 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   build:
@@ -13,29 +13,18 @@ jobs:
       contents: read
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up JDK 22
-      uses: actions/setup-java@v4
-      with:
-        java-version: '22'
-        distribution: 'temurin'
+      - uses: actions/checkout@v4
+      - name: Set up JDK 22
+        uses: actions/setup-java@v4
+        with:
+          java-version: '22'
+          distribution: 'temurin'
 
-    - name: Build with Gradle Wrapper
-      run: ./kociakWeb/gradlew build
-      working-directory: kociakWeb
+      # Grant execute permission for gradlew
+      - name: Grant execute permission for gradlew
+        run: chmod +x kociakWeb/gradlew
 
-    # Save test report as an artifact
-    - name: Upload test report
-      if: failure() # This will upload the report only if the build fails
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-report
-        path: kociakWeb/build/reports/tests/test/index.html
-
-    # Alternatively, you can upload the entire reports folder
-    - name: Upload all test reports
-      if: failure() # This will upload the reports only if the build fails
-      uses: actions/upload-artifact@v3
-      with:
-        name: test-reports
-        path: kociakWeb/build/reports/tests/test/
+      # Run the build using the Gradle wrapper
+      - name: Build with Gradle Wrapper
+        run: ./gradlew build
+        working-directory: kociakWeb
