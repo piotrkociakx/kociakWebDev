@@ -13,6 +13,13 @@ async function loadYamlFile(argument1: string): Promise<any> {
   return data;
 }
 
+async function loadPluginData(argument1: string): Promise<any> {
+  const url = `http://83.168.69.206/plugins/get/${argument1}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}
+
 async function displayYaml() {
   try {
     const argument1 = getQueryParam('name');
@@ -21,6 +28,25 @@ async function displayYaml() {
       throw new Error('Parameter "name" is missing in the URL');
     }
 
+    const pluginData = await loadPluginData(argument1);
+
+    const nameSpan = document.getElementById('name');
+    const descParagraph = document.getElementById('desc');
+    const youtubeIframe = document.getElementById('youtube') as HTMLIFrameElement;
+
+    if (nameSpan) {
+      nameSpan.textContent = pluginData.name;
+    }
+
+    if (descParagraph) {
+      descParagraph.textContent = pluginData.description;
+    }
+
+    if (youtubeIframe) {
+      youtubeIframe.src = pluginData.youtube;
+    }
+
+
     const yamlData = await loadYamlFile(argument1);
     const outputDiv = document.getElementById('configYaml');
 
@@ -28,7 +54,7 @@ async function displayYaml() {
       outputDiv.innerHTML = `<pre>${JSON.stringify(yamlData, null, 2)}</pre>`;
     }
   } catch (error) {
-    console.error('Error loading or parsing YAML file:', error);
+    console.error('Error loading plugin data or parsing YAML file:', error);
   }
 }
 
