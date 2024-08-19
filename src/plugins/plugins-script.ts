@@ -10,7 +10,7 @@ async function loadYamlFile(filePath: string): Promise<any> {
 async function displayYaml() {
   try {
     const yamlData = await loadYamlFile('/path/to/data.yml');
-    const outputDiv = document.getElementById('yaml-output');
+    const outputDiv = document.getElementById('configYaml');
 
     if (outputDiv) {
       outputDiv.innerHTML = `<pre>${JSON.stringify(yamlData, null, 2)}</pre>`;
