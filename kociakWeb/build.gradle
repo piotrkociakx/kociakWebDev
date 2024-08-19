@@ -32,6 +32,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
+test {
+	reports {
+		html.required.set(true)  // W przypadku nowoczesnych wersji Gradle
+		html.outputLocation.set(file("$buildDir/reports/tests/test"))
+	}
 }
+
