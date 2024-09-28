@@ -1,7 +1,0 @@
-{
-  "name": "portfel",
-  "description": "Zaawansowany plugin na portfel z 3 bazami danych: mysql, flat, sqlite3. Posiada on pełną konfiguracje również GUI oraz wsparcie dla PlaceholderAPI. Komendy to /portfel oraz /adminportfel. Kupując plugin możesz się spodziewać aby był spersonalizowany pod ciebie",
-  "youtube": "https://www.youtube.com/embed/xl-lzgu124g",
-  "conifg": "http://srv1.piotrkocikax.pl/plugins/getConifg/portfel",
-  "images": []
-}
